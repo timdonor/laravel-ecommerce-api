@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BrandsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,14 @@ Route::group([
     Route::post("/logout", [AuthController::class, 'logout']);
     Route::post("/refresh", [AuthController::class, 'refresh']);
     Route::post("/user-profile", [AuthController::class, 'userProfile']);
+});
+
+
+// Brands CRUD
+Route::controller(BrandsController::class)->group(function(){
+    Route::get('index', 'index');
+    Route::get('show/{id}', 'show');
+    Route::post('store', 'store');
+    Route::put('update_brand/{id}', 'update_brand');
+    Route::delete('delete_brand/{id}', 'delete');
 });
