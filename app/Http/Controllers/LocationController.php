@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LocationController extends Controller
@@ -20,7 +21,7 @@ class LocationController extends Controller
             'street'=> $request->street,
             'building'=> $request->building,
             'area'=> $request->area,
-            'user_id'=> JWTAuth::id()
+            'user_id'=> Auth::id()
         ]);
 
         return response()->json('Location added', 201);

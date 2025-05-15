@@ -37,7 +37,7 @@ class ProductController extends Controller
             'price'=> 'required|numeric',
             'category_id'=> 'required|numeric',
             'brand_id'=> 'required|numeric',
-            'discount'=> 'required|numeric',
+            'discount'=> 'numeric',
             'amount'=> 'required|numeric',
             'image'=> 'required'
         ]);
@@ -81,7 +81,7 @@ class ProductController extends Controller
             'price'=> 'required|numeric',
             'category_id'=> 'required|numeric',
             'brand_id'=> 'required|numeric',
-            'discount'=> 'required|numeric',
+            'discount'=> 'numeric',
             'amount'=> 'required|numeric',
             'image'=> 'required'
         ]);

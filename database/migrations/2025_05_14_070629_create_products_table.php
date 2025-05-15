@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('caetgory_id')->unsigned();
-            $table->bigInteger('brand_id')->unsigned();
+            // $table->bigInteger('caetgory_id')->unsigned();
+            // $table->bigInteger('brand_id')->unsigned();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->string('name');
             $table->boolean('is_trendy')->default(false);
             $table->boolean('is_available')->default(true);
@@ -24,8 +26,8 @@ return new class extends Migration
             $table->string('image');
             $table->timestamps();
 
-            $table->foreignId('category_id')->references('id')->on('category')->onDelete('cascade');
-            $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            // $table->foreignId('category_id')->references('id')->on('category')->onDelete('cascade');
+            // $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
